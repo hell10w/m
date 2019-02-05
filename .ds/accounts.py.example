@@ -1,0 +1,45 @@
+from generic import Gmail
+from generic import Rss
+from generic import Reddit
+
+
+ACCOUNTS = [
+    Gmail(...),
+]
+
+RSS = [
+    Reddit('crypto', [
+        'Bitcoin',
+        'CryptoCurrency',
+        'BTCNews',
+        'ethereum',
+    ]),
+    Rss('crypto', 'https://www.schneier.com/blog/atom.xml'),
+
+    Reddit('editors', [
+        'vim',
+        'emacs',
+        'SpaceVim',
+    ]),
+
+    Reddit('unix', [
+        'debian',
+        'django',
+        'docker',
+        'awesomewm',
+        'NixOS',
+        'ranger',
+        'i3wm',
+        'linux',
+        'linuxmasterrace',
+        'Python',
+        'unix',
+        'TempleOS_Official',
+    ]),
+    Rss('unixshit', 'https://www.kernel.org/feeds/kdist.xml'),
+
+    Reddit('life', [
+        'cellular_automata',
+    ]),
+
+]

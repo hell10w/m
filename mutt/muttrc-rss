@@ -1,0 +1,19 @@
+source ./mutt/muttrc-base
+
+set charset="UTF-8"
+
+set mailcap_path=./mutt/mailcap-rss
+auto_view text/html
+alternative_order text/plain text/enriched
+
+#set index_format="%4C %Z %-35.35L (%4l) %s"'
+set index_format="%4C %[%F %T] %Z (%4l) %s"'
+
+set sidebar_visible = no
+
+set mbox_type=Maildir
+
+set folder = "./.temp/feeds"
+set mbox = "./.temp/feeds"
+set spoolfile = "./.temp/feeds"
+

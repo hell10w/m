@@ -1,0 +1,2 @@
+text/plain; w3m -cols 1000 -T text/html; copiousoutput;
+text/html; w3m -cols 1000 -T text/html; copiousoutput;

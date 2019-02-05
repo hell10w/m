@@ -1,0 +1,4 @@
+[
+    {% for item in rss %}["{{ item.prefix }}", "{{ item.url }}"]{% if not loop.last %},{% endif %}
+    {% endfor %}
+]

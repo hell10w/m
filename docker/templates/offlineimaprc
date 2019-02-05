@@ -1,0 +1,37 @@
+[general]
+accounts = {% for account in accounts %}{{ account.email }}{% if not loop.last %}, {% endif %}{% endfor %}
+maxconnections = 2
+maxsyncaccounts = 1
+
+
+[mbnames]
+enabled = yes
+filename = /generated/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+
+{% for account in accounts %}
+[Account {{ account.email }}]
+localrepository = {{ account.email }}-local
+remoterepository = {{ account.email }}-remote
+utf8foldernames = yes
+
+[Repository {{ account.email }}-local]
+type = Maildir
+localfolders = /maildirs/{{ account.email }}
+
+[Repository {{ account.email }}-remote]
+type = IMAP
+realdelete = no
+remotehost = {{ account.imap }}
+remoteuser = {{ account.email }}
+remotepass = {{ account.real_password }}
+holdconnectionopen = true
+keepalive = 60
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+
+{% endfor %}

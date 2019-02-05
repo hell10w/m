@@ -1,0 +1,7 @@
+folder-hook () 'set smtp_url='
+folder-hook () 'set from='
+
+{% for account in accounts %}
+folder-hook {{ account.email }}/.* 'set smtp_url=smtps://{{ account.email }}:{{ account.real_password|replace('\\', '\\\\')|replace(':', '\\:') }}@{{ account.smtp }}'
+folder-hook {{ account.email }}/.* 'set from="{{ account.from_ }} <{{ account.email }}>"'
+{% endfor %}

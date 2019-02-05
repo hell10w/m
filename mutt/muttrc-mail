@@ -1,0 +1,12 @@
+source ./mutt/muttrc-base
+
+set mailcap_path=./mutt/mailcap-mail
+auto_view text/html
+alternative_order text/plain text/html text/enriched
+
+# IMAP: offlineimap
+set mbox_type=Maildir
+set folder = "./.temp/maildirs"
+
+source ./.temp/generated/mailboxes
+source ./.temp/generated/muttrc-folder-hooks
